@@ -1,0 +1,35 @@
+﻿@model List<WebApplication.Models.AutorModel>
+@{
+    ViewBag.Title = "GetAutor";
+}
+
+<h2>GetAutor</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Nombre)
+        </th>
+    </tr>
+
+    @foreach (var autor in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => autor.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => autor.Nombre)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Autor", autor.Id)
+            </td>
+        </tr>
+    }
+</table>
