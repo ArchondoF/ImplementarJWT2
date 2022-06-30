@@ -5,12 +5,13 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using TreansferObject.Seguridad;
 
 namespace BusinessLogic.Services.Seguridad
 {
     public class SecurityService
     {
-        public bool ValidarCredencialesUsuario(string userName, string password)
+        public SesionUsuario ValidarCredencialesUsuario(string userName, string password)
         {
             bool credencialesValidas = false;
 
@@ -26,11 +27,15 @@ namespace BusinessLogic.Services.Seguridad
 
                     //Comparo passwords hasheadas con el mismo salt, si coinciden, se que las credenciales son validas
                     if (usuario.Password == hashedPassword)
-                        credencialesValidas = true;
+                         usuarioValido = new SesionUsuario()
+                        {
+                            Id = usuario.Id,
+                            Nombre = usuario.UserName,
+                        };
                 }
             }
 
-            return credencialesValidas;
+            return usuarioValido;
         }
 
         public string GenerarHashSHA256(string plainString, string salt)

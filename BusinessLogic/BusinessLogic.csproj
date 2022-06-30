@@ -64,6 +64,10 @@
       <Project>{259b15c2-da98-4b77-b3ca-484e7af2f727}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TreansferObject\TreansferObject.csproj">
+      <Project>{594f9ab8-8e83-4387-927a-1d295f0939fa}</Project>
+      <Name>TreansferObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

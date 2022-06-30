@@ -122,10 +122,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AutorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AutorModel.cs" />
+    <Compile Include="Models\InicioSesionModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validations\NombreAutorEnUsoValidationAtribute.cs" />
   </ItemGroup>
@@ -168,6 +170,8 @@
     <Content Include="Views\Autor\Consulta.cshtml" />
     <Content Include="Views\Autor\Creacion.cshtml" />
     <Content Include="Views\Autor\GetAutor.cshtml" />
+    <Content Include="Views\Autor\EditarAutor.cshtml" />
+    <Content Include="Views\Seguridad\InicioSesion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -73,6 +73,37 @@ namespace WebApplication.Controllers
 
             return View(colAutores);
         }
+        public ActionResult EditarAutor(long id)
+        {
+            IWebApiClient apiClient = new WebApiClient(HttpClientAccessor.HttpClient);
+
+            List<AutorModel> colAutores = new List<AutorModel>();
+
+            var parameters = new Dictionary<string, string>()
+            {
+                ["Id"] = id.ToString()
+            };
+
+            var baseUrl = ConfigurationManager.AppSettings["WEB_API_ENDPOINT"];
+
+            Uri consultaAutorUri = new Uri(baseUrl + "Autor/GetAutorById");
+
+            var response = apiClient.Get(consultaAutorUri, parameters);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var Autor = JsonConvert.DeserializeObject<AutorModel>(response.Content.ReadAsStringAsync().Result);
+                colAutores.Add(Autor);
+
+            }
+            else
+            {
+
+            }
+
+
+            return View(colAutores);
+        }
         public ActionResult Creacion()
         {
             return View();
